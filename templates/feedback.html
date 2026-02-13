@@ -1,0 +1,78 @@
+<!-- feedback.html-->
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <!-- PAGE TITLE -->
+    <div class="text-center mb-4">
+      <div class="d-inline-block px-4 py-2 rounded-4 shadow-sm"
+           style="background: rgba(255,255,255,0.85);">
+        <h1 class="fw-bold mb-0">Feedback</h1>
+      </div>
+    </div>
+
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-3">📝 Rate Your Previous Recommendations</h2>
+        <p class="text-center text-muted">Your rating helps us improve future predictions</p>
+
+        <form action="{{ url_for('feedback.submit_feedback', user_id=user_id) }}" method="POST">
+
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+
+            <table class="table table-bordered text-center mt-4">
+                <thead class="table-light">
+                    <tr>
+                        <th width="15%">Recommendation Type</th>
+                        <th width="15%">Model Prediction</th>
+                        <th width="20%">Prediction</th>
+                        <th width="38%">Recommendation</th>
+                        <th width="12%">Rate</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for rec in records %}
+                <tr>
+                    <td><strong>{{ rec.type }}</strong></td>
+
+
+                                        <!-- Model Prediction -->
+                    <td>
+                        {{ rec.model_prediction }}
+                    </td>
+
+                    <!-- Prediction -->
+                    <td>
+                        {{ rec.prediction }}
+                    </td>
+
+                    <!-- Recommendation text -->
+                    <td style="text-align: left;">
+                        {{ rec.recommendation }}
+                    </td>
+
+                    <!-- Rating -->
+                    <td>
+                        <label>
+                            <input type="radio" name="rec_{{ rec.rec_id }}" value="1" required> 👍
+                        </label>
+                        <label class="ms-2">
+                            <input type="radio" name="rec_{{ rec.rec_id }}" value="0"> 👎
+                        </label>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-success px-4">Submit Feedback</button>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary px-4 ms-2">Home</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

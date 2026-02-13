@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex flex-column justify-content-center align-items-center vh-100 text-center"
+     style="background: url('{{ url_for('static', filename='images/background.png') }}') center/cover no-repeat;">
+  <div class="bg-light bg-opacity-75 p-5 rounded-4 shadow-lg" style="max-width: 600px;">
+    <h1 class="mb-3 display-4 fw-bold">AI Hair Assist</h1>
+    <p class="lead mb-4">Welcome to AI Hair Assist — your intelligent companion for understanding and improving your hair health.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-5">Login</a>
+      <a href="{{ url_for('register') }}" class="btn btn-outline-dark btn-lg px-5">Register</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

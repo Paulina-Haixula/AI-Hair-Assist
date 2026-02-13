@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="max-w-4xl mx-auto py-12">
+  <h1 class="text-2xl font-bold">Welcome back</h1>
+  <p class="text-gray-600">Quick access to your recent recommendations and feedback.</p>
+
+  <div class="mt-6 grid grid-cols-1 gap-4">
+    {% for rec in recs %}
+    <div class="p-4 bg-white rounded-lg shadow flex justify-between items-center">
+      <div>
+        <div class="font-medium text-gray-800">Rec #{{ rec.rec_id }}</div>
+        <div class="text-xs text-gray-500">Model: {{ rec.model_id }} — {{ rec.created_at }}</div>
+      </div>
+      <div class="flex gap-2">
+        <a href="{{ url_for('recommend.view_recommendation', rec_id=rec.rec_id) }}" class="py-1 px-3 bg-indigo-600 text-white rounded">View</a>
+        <a href="{{ url_for('recommend.submit_feedback', rec_id=rec.rec_id) }}" class="py-1 px-3 bg-gray-100 rounded">Feedback</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

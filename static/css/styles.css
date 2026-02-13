@@ -1,0 +1,5 @@
+/* static/css/styles.css */
+body { font-family: "Segoe UI", Roboto, Arial, sans-serif; }
+.card { border-radius: 16px; }
+.form-control-lg { border-radius: 8px; }
+.btn-lg { border-radius: 12px; }

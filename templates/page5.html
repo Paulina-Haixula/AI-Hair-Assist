@@ -1,0 +1,228 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+<!-- PAGE TITLE -->
+    <div class="text-center mb-4">
+      <div class="d-inline-block px-4 py-2 rounded-4 shadow-sm"
+           style="background: rgba(255,255,255,0.85);">
+        <h1 class="fw-bold mb-0">Survey</h1>
+      </div>
+    </div>
+  <!-- PROGRESS BAR -->
+  <div class="mb-4">
+    <div class="progress" style="height:22px;">
+      <div class="progress-bar bg-primary"
+           role="progressbar"
+           style="width:100%;">
+        Step 4 of 4
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-5 shadow-lg"
+       style="max-width:900px; margin:auto; background: rgba(255,255,255,0.95);">
+
+    <h2 class="mb-3 text-center">Step 4 — Lifestyle</h2>
+    <p class="text-center text-muted mb-4">
+      Lifestyle factors influence nutrient availability, hydration,
+      friction, and long-term hair retention.
+    </p>
+
+    <form method="post">
+      <div class="row g-4">
+
+        <!-- DIET -->
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">
+            Eating Diet
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#dietHelp">ℹ️</button>
+          </label>
+
+          <div class="collapse info-box" id="dietHelp">
+            <small>
+              Diet quality affects nutrient intake such as protein,
+              iron, zinc, and vitamins essential for hair growth.
+            </small>
+          </div>
+
+          <select name="Eating_diet" class="form-control">
+            <option value="">-- Select Diet --</option>
+            {% for d in ['Healthy','Moderate','Unhealthy'] %}
+              <option value="{{ d }}"
+                {% if survey.Eating_diet == d %}selected{% endif %}>
+                {{ d }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- WATER -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Water Intake (L/day)
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#waterHelp">ℹ️</button>
+          </label>
+
+          <div class="collapse info-box" id="waterHelp">
+            <small>
+              Adequate hydration supports scalp moisture,
+              nutrient transport, and strand elasticity.
+            </small>
+          </div>
+
+          <input type="number"
+                 step="0.1"
+                 name="Consumed_water_per_day_L"
+                 value="{{ survey.Consumed_water_per_day_L or '' }}"
+                 class="form-control form-control-lg">
+        </div>
+
+        <!-- CURRENT HAIR LENGTH -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Current Hair Length
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#currentLengthHelp">ℹ️</button>
+          </label>
+
+          <div class="collapse info-box" id="currentLengthHelp">
+            <small>
+              Current length helps estimate growth rate
+              and identify potential retention issues.
+            </small>
+          </div>
+
+          <select name="Hair_length_Current_Hair_Length" class="form-control">
+            <option value="">-- Select Current Hair Length --</option>
+            {% for l in [
+              'Less than Ear length','Ear length','Collar bone length',
+              'Shoulder Length','Armpit Length (APL)','Strap Length (BSL)',
+              'Mid back Length','Waist Length','Hip Length',
+              'TailBone Length','Mid thigh Length','Knee Length',
+              'Calf length','Ankle Length','Floor Length'
+            ] %}
+              <option value="{{ l }}"
+                {% if survey.Hair_length_Current_Hair_Length == l %}selected{% endif %}>
+                {{ l }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- GOAL HAIR LENGTH -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Hair Goal Length
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#goalLengthHelp">ℹ️</button>
+          </label>
+
+          <div class="collapse info-box" id="goalLengthHelp">
+            <small>
+              Desired hair length helps personalize timelines,
+              routines, and protective strategies.
+            </small>
+          </div>
+
+          <select name="Hair_length_Hair_goal" class="form-control">
+            <option value="">-- Select Goal Hair Length --</option>
+            {% for l in [
+              'Less than Ear length','Ear length','Collar bone length',
+              'Shoulder Length','Armpit Length (APL)','Strap Length (BSL)',
+              'Mid back Length','Waist Length','Hip Length',
+              'TailBone Length','Mid thigh Length','Knee Length',
+              'Calf length','Ankle Length','Floor Length'
+            ] %}
+              <option value="{{ l }}"
+                {% if survey.Hair_length_Hair_goal == l %}selected{% endif %}>
+                {{ l }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- SATIN -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Satin Scarf / Bonnet / Pillowcase
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#satinHelp">ℹ️</button>
+          </label>
+
+          <div class="collapse info-box" id="satinHelp">
+            <small>
+              Satin reduces friction during sleep,
+              minimizing breakage and moisture loss.
+            </small>
+          </div>
+
+          <select name="Satin_scarfbonnet_or_pillowcase"
+                  class="form-select form-select-lg">
+            <option value="">-- Select --</option>
+            <option value="Yes"
+              {% if survey.Satin_scarfbonnet_or_pillowcase == 'Yes' %}selected{% endif %}>
+              Yes
+            </option>
+            <option value="No"
+              {% if survey.Satin_scarfbonnet_or_pillowcase == 'No' %}selected{% endif %}>
+              No
+            </option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="mt-5 d-flex justify-content-between align-items-center">
+        <a class="btn btn-secondary btn-lg"
+           href="{{ url_for('survey.page4') }}">
+          ⬅ Back
+        </a>
+
+        <button type="submit" name="save"
+                class="btn btn-primary btn-lg">
+          Submit → Diagnostic
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- AUTO-COLLAPSE SCRIPT -->
+<script>
+  document.querySelectorAll('.info-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.info-box').forEach(box => {
+        if (!btn.dataset.bsTarget.includes(box.id)) {
+          bootstrap.Collapse.getOrCreateInstance(box, { toggle: false }).hide();
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .info-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .info-box {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+</style>
+
+{% endblock %}

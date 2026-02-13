@@ -1,0 +1,10 @@
+
+Flask
+Flask-Login
+Flask-SQLAlchemy
+Flask-Migrate
+python-dotenv
+PyMySQL
+Werkzeug
+opencv-python
+numpy

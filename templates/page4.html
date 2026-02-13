@@ -1,0 +1,228 @@
+{% if request.args.get('returning') %}
+    <input type="hidden" name="returning_user" value="1">
+{% endif %}
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+<!-- PAGE TITLE -->
+    <div class="text-center mb-4">
+      <div class="d-inline-block px-4 py-2 rounded-4 shadow-sm"
+           style="background: rgba(255,255,255,0.85);">
+        <h1 class="fw-bold mb-0">Survey</h1>
+      </div>
+    </div>
+  <!-- PROGRESS BAR -->
+  <div class="mb-4">
+    <div class="progress" style="height: 22px;">
+      <div class="progress-bar bg-primary"
+           role="progressbar"
+           style="width: 75%;">
+        Step 3 of 4
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-5 shadow-lg"
+       style="max-width:900px; margin:auto; background: rgba(255,255,255,0.95);">
+
+    <h2 class="mb-3 text-center">Step 3 — Damage & Condition</h2>
+    <p class="text-center text-muted mb-4">
+      These indicators help assess hair damage severity, breakage risk,
+      and potential underlying scalp or hair health concerns.
+    </p>
+
+    <form method="post">
+      <div class="row g-4">
+
+        <!-- HAIR EDGES CONDITION -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Hair Edges Condition
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#edgesHelp">
+              ℹ️
+            </button>
+          </label>
+
+          <div class="collapse info-box" id="edgesHelp">
+            <small>
+              Edges are the most fragile hairline areas and are
+              sensitive to tension, styling, and breakage.
+            </small>
+          </div>
+
+          <select name="hair_edges_condition" class="form-control" required>
+            <option value="">-- Select Condition --</option>
+            {% for e in ['Healthy','Thinning','Loss'] %}
+              <option value="{{ e }}"
+                {% if survey.hair_edges_condition == e %}selected{% endif %}>
+                {{ e }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- HAIR LOSS STATE -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Hair Loss State
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#lossHelp">
+              ℹ️
+            </button>
+          </label>
+
+          <div class="collapse info-box" id="lossHelp">
+            <small>
+              The <strong>Hamilton–Norwood Scale</strong> is the clinical standard for
+              diagnosing and tracking <strong>male pattern baldness</strong> progression.
+              <hr class="my-1">
+
+              <strong>Class 1:</strong> No significant hair loss or recession.<br>
+              <strong>Class 2:</strong> Slight recession at the temples (mature hairline).<br>
+              <strong>Class 3:</strong> First clinically significant hair loss with deep
+              recession in an M, U, or V shape; possible crown thinning.<br>
+              <strong>Class 4:</strong> Severe recession and a sparse or bald crown, separated
+              by a band of hair.<br>
+              <strong>Class 5:</strong> Enlarged balding areas with a thinner separating band.<br>
+              <strong>Class 6:</strong> Temple and crown balding areas merge.<br>
+              <strong>Class 7:</strong> Most severe stage; only a thin horseshoe-shaped band
+              remains around the sides and back.
+            </small>
+
+            <!-- Image under classes -->
+            <div class="mt-2 text-center">
+              <img src="{{ url_for('static', filename='images/hair_loss_classes.jpeg') }}"
+                   alt="Hair Loss Classes"
+                   class="img-fluid rounded border"
+                   style="max-height:180px;">
+            </div>
+          </div>
+
+          <select name="hair_loss_state" class="form-control" required>
+            <option value="">-- Select Loss Class --</option>
+            {% for c in ['Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 7'] %}
+              <option value="{{ c }}"
+                {% if survey.hair_loss_state == c %}selected{% endif %}>
+                {{ c }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- HAIR BREAKAGE -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Hair Breakage
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#breakageHelp">
+              ℹ️
+            </button>
+          </label>
+
+          <div class="collapse info-box" id="breakageHelp">
+            <small>
+              Breakage reflects strand fragility due to dryness,
+              chemical processing, or mechanical stress.
+            </small>
+          </div>
+
+          <select name="hair_breakage" class="form-control">
+            <option value="">-- Select Breakage Level --</option>
+            {% for b in [
+              'Extreme- Low Breakage',
+              'Low Breakage',
+              'Medium Breakage',
+              'High Breakage',
+              'Extreme- High Breakage',
+              'None'
+            ] %}
+              <option value="{{ b }}"
+                {% if survey.hair_breakage == b %}selected{% endif %}>
+                {{ b }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- CURRENT HAIR CONDITION -->
+        <div class="col-md-3">
+          <label class="form-label fw-semibold">
+            Current Hair Condition
+            <button type="button" class="info-btn"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#conditionHelp">
+              ℹ️
+            </button>
+          </label>
+
+          <div class="collapse info-box" id="conditionHelp">
+            <small>
+              Overall condition reflects hydration balance,
+              structural integrity, and recent damage exposure.
+            </small>
+          </div>
+
+          <select name="current_hair_condition" class="form-control">
+            <option value="">-- Select Condition --</option>
+            {% for h in ['Healthy','Dry','Moisturize','Damaged'] %}
+              <option value="{{ h }}"
+                {% if survey.current_hair_condition == h %}selected{% endif %}>
+                {{ h }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+      </div>
+
+      <!-- NAVIGATION -->
+      <div class="mt-5 d-flex justify-content-between">
+        <a class="btn btn-secondary btn-lg"
+           href="{{ url_for('survey.page3') }}">
+          ⬅ Back
+        </a>
+        <button class="btn btn-primary btn-lg">
+          Next ➡
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- AUTO-COLLAPSE SCRIPT -->
+<script>
+  document.querySelectorAll('.info-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.info-box').forEach(box => {
+        if (!btn.dataset.bsTarget.includes(box.id)) {
+          bootstrap.Collapse.getOrCreateInstance(box, { toggle: false }).hide();
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .info-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .info-box {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+</style>
+
+{% endblock %}

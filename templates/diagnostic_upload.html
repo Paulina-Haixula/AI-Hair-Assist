@@ -1,0 +1,70 @@
+<!--Diagnostic_upload.html-->
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+
+        <h2 class="text-center mb-3">📸 Upload Diagnostic Image</h2>
+        <p class="text-center text-muted">
+            Please upload a clear image of your scalp to help improve diagnostic accuracy.
+        </p>
+
+        {% if error %}
+            <div class="alert alert-danger text-center">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <!-- Image capture instructions -->
+        <div class="alert alert-info mt-4">
+            <h5 class="mb-2">📋 How to take a good diagnostic image</h5>
+            <ul class="mb-0">
+                <li>📱 Use a phone or camera with good focus and resolution</li>
+                <li>💡 Take the photo in <strong>bright natural light</strong> (avoid flash if possible)</li>
+                <li>🧑‍🦱 Ensure the <strong>scalp is clearly visible</strong> — part the hair if necessary</li>
+                <li>📐 Hold the camera about <strong>20–30 cm</strong> from the scalp</li>
+                <li>🚫 Avoid blurry, dark, or overexposed images</li>
+                <li>🧼 Make sure the scalp is clean and free of styling products</li>
+                <li>🔍 Capture only the head/scalp area — avoid background distractions</li>
+            </ul>
+        </div>
+
+        <!-- Upload form -->
+        <form
+            action="{{ url_for('diagnostic.imagesaved', survey_id=survey_id) }}"
+            method="post"
+            enctype="multipart/form-data"
+            class="mt-4"
+        >
+            <input type="hidden" name="survey_id" value="{{ survey_id }}">
+
+            <div class="mb-3">
+                <label class="form-label">Select Image</label>
+                <input
+                    type="file"
+                    name="image_file"
+                    class="form-control"
+                    accept="image/*"
+                    required
+                >
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a
+                    href="{{ url_for('diagnostic.diagnostic_choice', survey_id=survey_id) }}"
+                    class="btn btn-secondary"
+                >
+                    ⬅ Back
+                </a>
+
+                <button type="submit" class="btn btn-primary">
+                    ⬆ Upload Image
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

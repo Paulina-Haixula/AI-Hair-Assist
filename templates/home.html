@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Top-right small buttons -->
+<nav class="d-flex justify-content-end p-3">
+  {% if user_id %}
+    <a href="{{ url_for('recommend.build_recommendations_route', survey_id=user_id) }}" class="btn btn-sm btn-success me-2">
+      My Recommendation
+    </a>
+    <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-secondary">Logout</a>
+  {% else %}
+    <a href="{{ url_for('login') }}" class="btn btn-sm btn-primary me-2">Login</a>
+    <a href="{{ url_for('register') }}" class="btn btn-sm btn-outline-dark">Register</a>
+    <a href="{{ url_for('login') }}" class="btn btn-sm btn-success ms-2">Recommendation</a>
+  {% endif %}
+</nav>
+
+<!-- Hero Section -->
+<section class="d-flex flex-column justify-content-center align-items-center text-center py-5"
+         style="background: url('{{ url_for('static', filename='images/background.png') }}') center/cover no-repeat;">
+  <div class="bg-light bg-opacity-75 p-5 rounded-4 shadow-lg" style="max-width: 800px;">
+    <h1 class="display-3 fw-bold mb-3">AI Hair Assist</h1>
+    <p class="lead mb-4">
+      Your intelligent companion for understanding and improving your hair health.
+      Get personalized hair care recommendations based on your hair type, texture, porosity, and lifestyle.
+    </p>
+    <p class="mb-3">
+      Our AI-driven system combines scientific knowledge and expert rules to guide you through your hair journey.
+    </p>
+    <a href="{% if user_id %}{{ url_for('recommend.build_recommendations_route', survey_id=user_id) }}{% else %}{{ url_for('login') }}{% endif %}"
+       class="btn btn-lg btn-success px-5">
+      Get Recommendation
+    </a>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="container py-5">
+  <div class="p-5 rounded-4 shadow-lg"
+       style="background: rgba(255,255,255,0.88);">
+
+    <h2 class="text-center mb-4 fw-bold">Why Choose AI Hair Assist?</h2>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 border-0">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-semibold">Personalized Recommendations</h5>
+            <p class="card-text text-muted">
+              Tailored advice based on your hair type, porosity,
+              density, and lifestyle.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 border-0">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-semibold">Science & Expert Knowledge</h5>
+            <p class="card-text text-muted">
+              AI-driven predictions combined with expert rules
+              to ensure safe and effective guidance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 border-0">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-semibold">Track Your Progress</h5>
+            <p class="card-text text-muted">
+              Monitor your hair health over time and refine
+              your routine for optimal results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STEPS TO TAKE -->
+<section class="container my-5">
+  <div class="p-5 rounded-4 shadow-lg"
+       style="background: rgba(255,255,255,0.88);">
+
+    <h2 class="text-center fw-bold mb-4">Steps to Get Your Hair Recommendation</h2>
+    <p class="text-center text-muted mb-5">
+      Follow these simple steps to receive a personalized AI-powered hair care routine.
+    </p>
+
+    <div class="row g-4 text-center">
+
+      <!-- STEP 1 -->
+      <div class="col-md-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="display-6 fw-bold text-primary mb-2">1</div>
+            <h5 class="fw-semibold">Complete the Survey</h5>
+            <p class="small text-muted">
+              Answer questions about your hair type, texture, porosity,
+              damage level, and lifestyle.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="col-md-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="display-6 fw-bold text-primary mb-2">2</div>
+            <h5 class="fw-semibold">
+              Hair Disease Diagnostic
+              <span class="badge bg-secondary ms-1">Optional</span>
+            </h5>
+            <p class="small text-muted">
+              Upload a scalp image for AI-assisted disease detection
+              to improve recommendation accuracy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="col-md-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="display-6 fw-bold text-primary mb-2">3</div>
+            <h5 class="fw-semibold">Feedback</h5>
+            <p class="small text-muted">
+              Returning users can review previous results and provide
+              feedback for continuous improvement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="col-md-3">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="display-6 fw-bold text-primary mb-2">4</div>
+            <h5 class="fw-semibold">Get Recommendation</h5>
+            <p class="small text-muted">
+              Receive a personalized hair care routine including products,
+              practices, and preventive tips.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS SECTION -->
+<div class="container my-5">
+  <div class="p-4 rounded-4 shadow-lg" style="background: rgba(255,255,255,0.85);">
+    <h2 class="text-center mb-4 fw-bold">How AI Hair Assist Works</h2>
+    <div class="row text-center g-4">
+
+      <div class="col-md-3">
+        <img src="{{ url_for('static', filename='images/survey_icon.png') }}" alt="Survey" class="img-fluid mb-2" style="max-height:80px;">
+        <h5 class="fw-semibold">Take Survey</h5>
+        <p class="text-muted small">
+          Fill out a detailed hair & lifestyle survey so our AI understands your unique hair profile.
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <img src="{{ url_for('static', filename='images/ai_icon.png') }}" alt="AI Analysis" class="img-fluid mb-2" style="max-height:80px;">
+        <h5 class="fw-semibold">AI Analysis</h5>
+        <p class="text-muted small">
+          Our AI analyzes hair type, porosity, density, damage, and lifestyle factors to create recommendations.
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <img src="{{ url_for('static', filename='images/recommend_icon.png') }}" alt="Recommendations" class="img-fluid mb-2" style="max-height:80px;">
+        <h5 class="fw-semibold">Personalized Recommendations</h5>
+        <p class="text-muted small">
+          Get a customized hair care routine including products, practices, and preventive steps.
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <img src="{{ url_for('static', filename='images/progress_icon.png') }}" alt="Track Progress" class="img-fluid mb-2" style="max-height:80px;">
+        <h5 class="fw-semibold">Track Progress</h5>
+        <p class="text-muted small">
+          Monitor your hair health over time and adjust your routine for maximum results.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

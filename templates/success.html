@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card p-5 shadow-lg" style="max-width:700px; margin:auto; background: rgba(255,255,255,0.95);">
+  <h2 class="text-center">Thank you!</h2>
+  <p class="lead">Your responses have been saved. Our recommendation engine will process your survey and generate a routine.</p>
+  <a class="btn btn-primary btn-lg" href="{{ url_for('survey.page2') }}">View / Update Survey</a>
+</div>
+{% endblock %}
