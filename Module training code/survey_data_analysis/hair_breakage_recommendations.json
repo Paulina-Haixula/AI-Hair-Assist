@@ -1,0 +1,17 @@
+{
+    "Extreme Low Breakage": {
+        "recommendation": "Maintain your current routine, as your hair shows very minimal breakage. Continue with gentle handling and protective styling."
+    },
+    "Low Breakage": {
+        "recommendation": "Slight breakage is normal. Use leave-in conditioners and avoid excessive heat styling to strengthen hair further."
+    },
+    "Medium Breakage": {
+        "recommendation": "Moderate breakage detected. Increase moisturizing treatments and use protein masks weekly to rebuild strength."
+    },
+    "High Breakage": {
+        "recommendation": "Hair is experiencing significant breakage. Reduce manipulation, avoid chemical treatments, and trim split ends regularly."
+    },
+    "Extreme High Breakage": {
+        "recommendation": "Severe breakage present. Consult a trichologist or dermatologist. Implement an intensive repair regimen with deep conditioning and protective styles."
+    }
+}

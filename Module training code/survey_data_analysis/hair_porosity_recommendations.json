@@ -1,0 +1,43 @@
+{
+    "hair_porosity_recommendations": {
+        "low": {
+            "description": "Low porosity hair resists moisture absorption and needs lightweight products.",
+            "recommended_products": [
+                "Light Leave-in Conditioner",
+                "Liquid-based Moisturizer",
+                "Heat Cap for Deep Conditioning"
+            ],
+            "care_tips": [
+                "Use heat to help products penetrate.",
+                "Avoid heavy oils and butters.",
+                "Clarify regularly to remove buildup."
+            ]
+        },
+        "medium": {
+            "description": "Medium porosity hair balances moisture well and needs moderate maintenance.",
+            "recommended_products": [
+                "Balanced Moisture Conditioner",
+                "Hydrating Shampoo",
+                "Butter Cream"
+            ],
+            "care_tips": [
+                "Maintain a balance of protein and moisture.",
+                "Deep condition weekly.",
+                "Protect hair from heat damage."
+            ]
+        },
+        "high": {
+            "description": "High porosity hair absorbs moisture quickly but loses it just as fast.",
+            "recommended_products": [
+                "Thick Cream Sealant",
+                "LOC Method Kit",
+                "Humectant-rich Deep Conditioner"
+            ],
+            "care_tips": [
+                "Seal moisture with heavy creams/oils.",
+                "Avoid harsh chemical treatments.",
+                "Use protein treatments to strengthen hair."
+            ]
+        }
+    }
+}

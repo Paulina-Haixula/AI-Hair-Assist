@@ -1,0 +1,18 @@
+{
+    "Damaged": {
+        "Recommendation": "Consult a dermatologist or trichologist. Begin a restorative routine with protein and moisture balance.",
+        "Why": "Hair damage may result from heat styling, chemical treatments, or environmental exposure. Professional guidance prevents worsening."
+    },
+    "Dry": {
+        "Recommendation": "Increase hydration with moisturizing masks and leave-in conditioners. Consult a professional if dryness persists.",
+        "Why": "Dry hair often indicates lack of moisture or scalp imbalance, which may require medical evaluation if chronic."
+    },
+    "Moisturized": {
+        "Recommendation": "Maintain your current routine with balanced hydration and protective styling.",
+        "Why": "Proper moisture retention supports hair elasticity, reduces breakage, and promotes healthy growth."
+    },
+    "Healthy": {
+        "Recommendation": "Continue your current routine.",
+        "Why": "Healthy hair indicates good scalp and cuticle condition, but preventive care ensures long-term health."
+    }
+}
