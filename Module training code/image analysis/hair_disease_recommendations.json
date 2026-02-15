@@ -1,0 +1,42 @@
+{
+    "Alopecia Areata": {
+        "Recommendation": "Consult a dermatologist immediately. Early intervention can help manage symptoms.",
+        "Why": "Autoimmune condition where the immune system attacks hair follicles."
+    },
+    "Contact Dermatitis": {
+        "Recommendation": "Visit a dermatologist to identify and avoid triggers. Medical creams may be prescribed.",
+        "Why": "Caused by allergic reactions or irritants leading to scalp inflammation."
+    },
+    "Folliculitis": {
+        "Recommendation": "Seek medical advice. A doctor may prescribe antibiotics or antifungal treatment.",
+        "Why": "Infection of hair follicles leading to bumps, itching, or pain."
+    },
+    "Head Lice": {
+        "Recommendation": "See a doctor or pharmacist for proper medicated shampoos and treatment guidance.",
+        "Why": "Parasitic infestation that causes intense itching and scalp irritation."
+    },
+    "Lichen Planus": {
+        "Recommendation": "Consult a dermatologist for anti-inflammatory or immunosuppressive treatment.",
+        "Why": "Chronic inflammatory condition that can cause scalp scarring and hair loss."
+    },
+    "Male Pattern Baldness": {
+        "Recommendation": "Seek medical advice. Treatments like minoxidil or finasteride may help slow progression.",
+        "Why": "Genetic hair loss condition common in men, often progressive."
+    },
+    "Psoriasis": {
+        "Recommendation": "Visit a dermatologist for medicated shampoos and treatments to reduce scalp plaques.",
+        "Why": "Chronic autoimmune condition causing flaky, itchy scalp."
+    },
+    "Seborrheic Dermatitis": {
+        "Recommendation": "Consult a dermatologist. Antifungal shampoos or topical treatments may be required.",
+        "Why": "Causes dandruff and inflamed, greasy scalp."
+    },
+    "Telogen Effluvium": {
+        "Recommendation": "See a doctor to identify stressors or underlying conditions causing temporary shedding.",
+        "Why": "Often triggered by stress, illness, or hormonal changes."
+    },
+    "Tinea Capitis": {
+        "Recommendation": "Consult a doctor for antifungal medications. Early treatment prevents spreading.",
+        "Why": "Fungal infection of the scalp leading to hair loss and scaly patches."
+    }
+}
