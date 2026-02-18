@@ -7,6 +7,9 @@ AI Hair Assist is an intelligent web-based application designed to analyze user 
 This project combines:
 
 * Deep Learning (DNN Hair Health Classifier)
+* Hair diseases classifier
+* Recommender System
+* User Feedback
 * Flask Web Framework
 * MySQL Database
 * HTML and CSS Frontend
