@@ -1,7 +1,4 @@
 # AI-Hair-Assist
-Here is your cleaned, professional **README.md** without emojis:
-
----
 
 # AI Hair Assist – Web Application
 
@@ -24,7 +21,7 @@ This project combines:
 * Secure Data Storage (MySQL)
 * AI Hair Health Classification Model
 * Personalized Hair Analysis
-* Clean and Responsive UI
+* Responsive UI
 
 ---
 
@@ -47,6 +44,7 @@ hair_app/
 ├── recommendation_route.py
 ├── .env
 ├── requirements.txt
+├── AI_HAIR_ASSIST_backup.sql.gz
 │
 ├── templates/
 │   ├── layout.html  
@@ -133,7 +131,19 @@ source .venv/bin/activate   # Mac/Linux
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+### 4. Database
+
+Database used: MySQL
+
+Make sure MySQL is running and the database exists:
+
+```sql
+CREATE DATABASE AI_HAIR_ASSIST;
+unzip to your local drive: AI_HAIR_ASSIST_backup.sql.gz
+```
+
+---
+### 5. Configure Environment Variables
 
 Create a `.env` file:
 
@@ -142,7 +152,7 @@ DATABASE_URL=mysql+pymysql://username:password@localhost:3306/AI_HAIR_ASSIST
 SECRET_KEY=your_secret_key
 ```
 
-### 5. Run the Application
+### 6. Run the Application
 
 ```bash
 flask run
@@ -156,31 +166,10 @@ http://127.0.0.1:5000/
 
 ---
 
-## Database
-
-Database used: MySQL
-
-Make sure MySQL is running and the database exists:
-
-```sql
-CREATE DATABASE AI_HAIR_ASSIST;
-```
-
----
-
-## Future Improvements (Stage 2 and 3)
-
-* Product recommendation engine
-* Image-based hair analysis (Computer Vision)
-* Admin dashboard
-* User hair progress tracking
-* Deployment (AWS, Render, or Docker)
-
----
-
 ## Author
 
-Developed as part of an AI-powered hair health assistant project.
+Paulina Haixula ~ Data Scientist
+Namibia
 
 ---
 
